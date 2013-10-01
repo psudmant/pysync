@@ -14,7 +14,8 @@ just do:
 
     #from <working_dir>
     pysync set_remote_path user@host:<remote_path>/big_dir/.../working_dir
+    #this saves the remote_path in the file .pysync.info for future use 
     pysync pull
     pysync push
 
-there's not much to it, but, for me I'd always make tiny errors in my full push or pull rsync which would totally screw me. This helps
+There's not much to it, but, for me I'd always make tiny errors in my full push or pull rsync which would totally screw me. This helps. Honestly. Well, for me it does. 
