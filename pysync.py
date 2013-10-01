@@ -24,9 +24,12 @@ def get_cmd(path, action, dry_run):
         d='n'
     if action=="PULL": 
         #cmd = 'rsync -arvz%s %s/%s %s'%(d, path, cwd_dir, cwd)
-        cmd = 'rsync -arvz%s %s %s'%(d, path, cwd)
+        cmd = 'rsync --progress -arvz%s %s/ %s/'%(d, path, cwd)
+    elif action =="PUSH":
+        cmd = 'rsync --progress -arvz%s %s/ %s/'%(d, cwd, path)
     else:
-        cmd = 'rsync -arvz%s %s %s'%(d, cwd, path)
+        print "no action"
+        exit(1)
     return cmd
 
 def sync(remote_path, action, dry_run):
@@ -63,7 +66,7 @@ if __name__=="__main__":
             opts.print_help()
             exit(1)
         
-        action = args[0]
+        action = args[0].upper()
 
         try:
             with open(".pysync.info") as F:
