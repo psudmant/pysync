@@ -23,7 +23,8 @@ def get_cmd(path, action, dry_run):
     if dry_run:
         d='n'
     if action=="PULL": 
-        cmd = 'rsync -arvz%s %s/%s %s'%(d, path, cwd_dir, cwd)
+        #cmd = 'rsync -arvz%s %s/%s %s'%(d, path, cwd_dir, cwd)
+        cmd = 'rsync -arvz%s %s %s'%(d, path, cwd)
     else:
         cmd = 'rsync -arvz%s %s %s'%(d, cwd, path)
     return cmd
