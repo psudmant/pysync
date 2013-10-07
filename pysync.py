@@ -101,7 +101,7 @@ if __name__=="__main__":
         prompt(msg="dry run complete")
         write_info(remote_info)
     elif o.exclude_path:
-        remote_info["exclude_dirs"].append(o.exclue_path)
+        remote_info["exclude_dirs"].append(o.exclude_path)
         sync(remote_info, "PUSH", dry_run=True) 
         sync(remote_info, "PULL", dry_run=True)
         prompt(msg="dry run complete")
@@ -120,7 +120,7 @@ if __name__=="__main__":
 
         if sync(remote_info, action, dry_run=True)==0:
             prompt("dry run complete")
-            sync(remote_path, action, dry_run=False)
+            sync(remote_info, action, dry_run=False)
 
             
     
